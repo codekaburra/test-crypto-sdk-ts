@@ -1,0 +1,20 @@
+{
+  "ethereum_mainnet": {
+    "explorer": {
+      "address": "https://etherscan.io/address/",
+      "transaction": "https://etherscan.io/tx/"
+    },
+    "rpc": "https://ethereum-rpc.publicnode.com",
+    "addresses": [
+    ]
+  },
+  "sepolia": {
+    "explorer": {
+      "address": "https://etherscan.io/address/",
+      "transaction": "https://etherscan.io/tx/"
+    },
+    "rpc": "https://ethereum-rpc.publicnode.com",
+    "addresses": [
+    ]
+  }
+}

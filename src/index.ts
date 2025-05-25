@@ -1,4 +1,5 @@
 import { run as runCosmos } from './cosmos/rpc';
+import { run as runEvm } from './evm';
 import 'dotenv/config';
 
 export const main = async () => {
@@ -12,6 +13,9 @@ export const main = async () => {
   switch (command) {
   case 'cosmos':
     await runCosmos(commandArgs);
+    break;
+  case 'evm':
+    await runEvm(commandArgs);
     break;
   default:
     console.log('invalid command');
