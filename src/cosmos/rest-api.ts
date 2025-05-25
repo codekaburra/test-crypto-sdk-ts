@@ -1,14 +1,25 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios';
 import cosmosNetworks from '../networks/cosmos.json';
 
 const { restApi, addresses } = cosmosNetworks.cosmosMainnet;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const run = async (_args: string[]) => {
-  // await getAccountInfo(addresses[0]);
-  // await getAccountBalance(addresses[0]);
-  // await getTransaction('23F11303A504083A874F6744A74EB2FEE25C47C5543A143F4B1550B3A5E162F5');
-  await getAddressInfo(addresses[0]);
+export const run = async (args: string[]) => {
+  const [command, ...commandArgs] = args;
+  switch (command) {
+    case 'balance':
+      await getAccountBalance(commandArgs[0]);
+      break;
+    case 'broadcast':
+      await broadcastTransaction(commandArgs[0]);
+      break;
+    default:
+      // await getAccountInfo(addresses[0]);
+      // await getAccountBalance(addresses[0]);
+      // await getTransaction('23F11303A504083A874F6744A74EB2FEE25C47C5543A143F4B1550B3A5E162F5');
+      await getAddressInfo(addresses[0]);
+  }
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,6 +46,7 @@ export const getAccountBalance = async (address: string) => {
   console.log(result);
   return result;
 };
+
 export const getAccountInfo = async (address: string) => {
   const result = await getApi(
     `${restApi}/cosmos/auth/v1beta1/account_info/${address}`,
@@ -42,6 +54,7 @@ export const getAccountInfo = async (address: string) => {
   );
   return result.info;
 };
+
 export const broadcastTransaction = async (txBytes: string) => {
   /*
   curl -X POST \

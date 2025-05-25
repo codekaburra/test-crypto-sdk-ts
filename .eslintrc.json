@@ -10,7 +10,7 @@
     "plugins": ["@typescript-eslint"],
     "rules": {
         "no-console": 0,
-        "indent": ["error", 2],
+        // "indent": ["error", 4],
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
         "max-len": ["warn", 120],

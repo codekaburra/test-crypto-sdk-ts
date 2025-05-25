@@ -1,9 +1,14 @@
 {
   "cosmosMainnet": {
+    "explorer": {
+      "address": "https://www.mintscan.io/cosmos/address/",
+      "transaction": "https://www.mintscan.io/cosmos/tx/"
+    },
     "restApi": "https://cosmos-rest.publicnode.com",
     "rpc": "https://cosmos-rpc.publicnode.com:443",
     "grpc": "cosmos-grpc.publicnode.com:443",
     "addresses": [
+      "cosmos1fl48vsnmsdzcv85q5d2q4z5ajdha8yu34mf0eh",
       "cosmos1r6upn9lr7crxhtguyzzk20qpe4e54pm2x0sa2t"
     ]
   }

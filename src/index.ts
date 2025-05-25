@@ -1,4 +1,4 @@
-import { run as runCosmos } from './cosmos/rest-api';
+import { run as runCosmos } from './cosmos/rpc';
 import 'dotenv/config';
 
 export const main = async () => {
