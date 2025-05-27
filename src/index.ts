@@ -1,5 +1,6 @@
 import { run as runCosmos } from './cosmos/rpc';
 import { run as runEvm } from './evm';
+import { run as runPolkadot } from './polkadot';
 import 'dotenv/config';
 
 export const main = async () => {
@@ -16,6 +17,9 @@ export const main = async () => {
     break;
   case 'evm':
     await runEvm(commandArgs);
+    break;
+  case 'polkadot':
+    await runPolkadot(commandArgs);
     break;
   default:
     console.log('invalid command');

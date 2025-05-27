@@ -1,0 +1,68 @@
+{
+  "polkadot": {
+    "decimals": 10,
+    "explorer": {
+      "address": "https://polkadot.subscan.io/account/",
+      "block": "https://polkadot.subscan.io/block/" ,
+      "transaction": "https://polkadot.subscan.io/extrinsic/"
+    },
+    "wss": "wss://rpc.polkadot.io",
+    "addresses": [
+    ]
+  },
+  "assethub-polkadot": {
+    "explorer": {
+      "address": "https://assethub-polkadot.subscan.io/account/",
+      "block": "https://assethub-polkadot.subscan.io/block/" ,
+      "transaction": "https://assethub-polkadot.subscan.io/extrinsic/"
+    },
+    "wss": "wss://rpc.polkadot.io",
+    "addresses": [
+    ]
+  },
+  "paseo": {
+    "symbol": "PAS",
+    "decimals": 10,
+    "explorer": {
+      "address": "https://paseo.subscan.io/account/",
+      "block": "https://paseo.subscan.io/block/" ,
+      "transaction": "https://paseo.subscan.io/extrinsic/"
+    },
+    "wss": "wss://paseo.rpc.amforc.com",
+    "addresses": [
+    ]
+  },
+  "assethub-paseo": {
+    "explorer": {
+      "address": "https://assethub-paseo.subscan.io/account/",
+      "block": "https://assethub-paseo.subscan.io/block/" ,
+      "transaction": "https://assethub-paseo.subscan.io/extrinsic/"
+    },
+    "wss": "wss://rpc.paseo.io",
+    "addresses": [
+    ]
+  },
+  "kusama": {
+    "decimals": 12,
+    "explorer": {
+      "address": "https://kusama.subscan.io/account/",
+      "block": "https://kusama.subscan.io/block/" ,
+      "transaction": "https://kusama.subscan.io/extrinsic/"
+    },
+    "wss": "wss://rpc.ibp.network/kusama",
+    "addresses": [
+    ]
+  },
+  "westend": {
+    "symbol": "WND",
+    "decimals": 12,
+    "explorer": {
+      "address": "https://kusama.subscan.io/account/",
+      "block": "https://kusama.subscan.io/block/" ,
+      "transaction": "https://kusama.subscan.io/extrinsic/"
+    },
+    "wss": "wss://westend-rpc.dwellir.com",
+    "addresses": [
+    ]
+  }
+}

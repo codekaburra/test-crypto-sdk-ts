@@ -44,6 +44,7 @@
     "@aptos-labs/ts-sdk": "^2.0.0",
     "@cosmjs/stargate": "^0.33.1",
     "@cosmos-client/core": "^0.47.4",
+    "@polkadot/api": "^16.0.1",
     "axios": "^1.9.0",
     "bignumber.js": "^9.3.0",
     "dotenv": "^16.5.0",
