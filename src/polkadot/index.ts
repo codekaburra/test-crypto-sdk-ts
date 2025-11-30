@@ -25,7 +25,7 @@ export const run = async (args: string[]) => {
   switch (command) {
     case 'balance':
       // await getAddressInfo(commandArgs[0]);
-      await getAddressInfo(process.env.POLKADOT_ADDRESS);
+      await getAddressInfo(process.env.POLKADOT_ADDRESS || '');
       break;
     case 'broadcast':
       await broadcastTransaction(commandArgs[0]);
@@ -130,7 +130,9 @@ const extrinsicInfo = await api.derive.tx.extrinsicInfo(
   '0xf30c652051733ef0fc15b833ef4918b457a76b2393bbb7b520dca85f18b00074'
 );
   // console.log(extrinsicInfo.extrinsic);
-  extrinsicInfo.events.map((event) => console.log(event.toJSON()));
+  if (extrinsicInfo) {
+    extrinsicInfo.events.map((event) => console.log(event.toJSON()));
+  }
 };
 
 export const broadcastTransaction = async (transaction: string) => {

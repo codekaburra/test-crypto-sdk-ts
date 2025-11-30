@@ -7,9 +7,19 @@
     "outDir": "dist",
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true
   },
   "include": [
     "src/**/*",
     "test/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ]
 }

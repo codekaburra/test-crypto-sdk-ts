@@ -1,5 +1,6 @@
 
 import { ethers } from 'ethers';
+import BigNumber from 'bignumber.js';
 import networks from '../networks/evm.json';
 import { toReadableUnit } from '../utils';
 const selectedNetwork = networks.ethereum_mainnet;

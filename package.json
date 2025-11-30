@@ -1,7 +1,7 @@
 {
-  "name": "ts-playground-template",
+  "name": "crypto-sdk-api-server",
   "version": "0.0.1",
-  "description": "",
+  "description": "Multi-blockchain API server supporting EVM, Cosmos, and Polkadot networks",
   "main": "index.js",
   "scripts": {
     "clean:dist": "rimraf ./dist",
@@ -11,10 +11,10 @@
     "lint:fix": "npx eslint --fix src/**/*.ts && npx eslint --fix test/**/*.ts",
     "fmt": "npx prettier . --write",
     "prebuild": "npm run clean:dist",
-    "dev": "npx ts-node src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
-    "start": "node dist/src/index",
-    "start:dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "node dist/src/index.js",
+    "start:prod": "NODE_ENV=production node dist/src/index.js",
     "pretest": "npm run build",
     "test": "mocha dist/test/**/*.js",
     "test:dev": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'",
@@ -22,8 +22,11 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
     "@types/lodash": "^4.14.188",
     "@types/mocha": "^10.0.0",
+    "@types/morgan": "^1.9.10",
     "@types/node": "^18.11.9",
     "@types/sinon": "^10.0.13",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
@@ -47,7 +50,11 @@
     "@polkadot/api": "^16.0.1",
     "axios": "^1.9.0",
     "bignumber.js": "^9.3.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
-    "ethers": "^6.14.1"
+    "ethers": "^6.14.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
   }
 }

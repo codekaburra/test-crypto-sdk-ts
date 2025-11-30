@@ -1,11 +1,12 @@
 // tslint:disable: only-arrow-functions
 import { expect } from 'chai';
-import { main } from '../src';
+import app from '../src';
 
-describe('Index module', function () {
-  describe('expected behavior', function () {
-    it('should return hello world', function () {
-      expect(main()).to.equal('Hello World');
+describe('API Server', function () {
+  describe('Health Check', function () {
+    it('should export express app', function () {
+      expect(app).to.exist;
+      expect(typeof app).to.equal('function');
     });
   });
 });
