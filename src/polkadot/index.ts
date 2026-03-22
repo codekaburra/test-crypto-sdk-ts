@@ -3,7 +3,7 @@ import { decodeAddress, encodeAddress } from '@polkadot/keyring';
 import { hexToU8a, isHex } from '@polkadot/util';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import { 
-  mnemonicGenerate,
+  mnemonicGenerate, 
   mnemonicToMiniSecret,
   mnemonicValidate,
   ed25519PairFromSeed } from '@polkadot/util-crypto';

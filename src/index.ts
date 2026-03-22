@@ -8,6 +8,7 @@ import 'dotenv/config';
 import evmRoutes from './routes/evm';
 import cosmosRoutes from './routes/cosmos';
 import polkadotRoutes from './routes/polkadot';
+import suiRoutes from './routes/sui';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
