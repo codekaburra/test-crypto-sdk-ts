@@ -5,7 +5,7 @@ import {
   getTransaction, 
   broadcastTransaction,
   buildTransaction
-} from '../evm';
+} from '../evm/evm';
 
 const router = express.Router();
 

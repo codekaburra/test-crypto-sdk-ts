@@ -17,8 +17,7 @@
     "start:prod": "NODE_ENV=production node dist/src/index.js",
     "pretest": "npm run build",
     "test": "mocha dist/test/**/*.js",
-    "test:dev": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'",
-    "prepare": "husky"
+    "test:dev": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
@@ -33,15 +32,13 @@
     "@typescript-eslint/parser": "^5.42.1",
     "chai": "^4.3.7",
     "eslint": "^8.27.0",
-    "husky": "^9.1.5",
-    "lint-staged": "^15.2.9",
     "mocha": "^10.1.0",
     "prettier": "3.3.3",
     "rimraf": "^3.0.2",
     "sinon": "^14.0.2",
     "ts-mocha": "^10.0.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.8.4"
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "@aptos-labs/ts-sdk": "^2.0.0",
@@ -49,13 +46,18 @@
     "@cosmos-client/core": "^0.47.4",
     "@mysten/sui": "^1.45.0",
     "@polkadot/api": "^16.0.1",
+    "@solana/web3.js": "^1.98.4",
     "axios": "^1.9.0",
     "bignumber.js": "^9.3.0",
+    "casper-js-sdk": "^5.0.10",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "eosjs": "^22.1.0",
     "ethers": "^6.14.1",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
-    "morgan": "^1.10.1"
+    "icon-sdk-js": "^1.5.3",
+    "morgan": "^1.10.1",
+    "tronweb": "^6.2.2"
   }
 }

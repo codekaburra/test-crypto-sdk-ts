@@ -3,7 +3,9 @@ import {
   getAddressInfo, 
   getTransaction, 
   broadcastTransaction
-} from '../cosmos/rpc';
+} from '../cosmos/cosmosBase';
+import { deriveAddressFromPubKey } from '../cosmos/pubkeyUtils';
+import { CosmosPublicKeyTypeUrl } from '../cosmos/types';
 
 const router = express.Router();
 
@@ -33,6 +35,36 @@ router.get('/transaction/:hash', async (req, res) => {
       success: false, 
       error: 'Failed to get transaction',
       message: error instanceof Error ? error.message : 'Unknown error'
+    });
+  }
+});
+
+// GET /api/cosmos/derive-address?pubKeyHex=...&typeUrl=...&prefix=cosmos
+router.get('/derive-address', async (req, res) => {
+  try {
+    const pubKeyHex = typeof req.query.pubKeyHex === 'string' ? req.query.pubKeyHex : '';
+    const typeUrl = typeof req.query.typeUrl === 'string' ? req.query.typeUrl : '';
+    const prefix = typeof req.query.prefix === 'string' ? req.query.prefix : '';
+    if (!pubKeyHex || !typeUrl || !prefix) {
+      return res.status(400).json({
+        success: false,
+        error: 'Missing pubKeyHex, typeUrl, or prefix query parameters',
+      });
+    }
+    if (!Object.values(CosmosPublicKeyTypeUrl).includes(typeUrl as CosmosPublicKeyTypeUrl)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid typeUrl',
+        allowed: Object.values(CosmosPublicKeyTypeUrl),
+      });
+    }
+    const address = deriveAddressFromPubKey(pubKeyHex, typeUrl as CosmosPublicKeyTypeUrl, prefix);
+    res.json({ success: true, data: { address, prefix, typeUrl } });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: 'Failed to derive address',
+      message: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 });

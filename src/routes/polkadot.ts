@@ -6,7 +6,7 @@ import {
   broadcastTransaction,
   buildTransaction,
   newWallet
-} from '../polkadot';
+} from '../polkadot/polkadot';
 
 const router = express.Router();
 
@@ -39,11 +39,20 @@ router.get('/address/:address', async (req, res) => {
   }
 });
 
-// GET /api/polkadot/transaction/:hash - Get transaction by hash
+// GET /api/polkadot/transaction/:hash?blockHash=0x... — extrinsic hash + block hash (parent block)
 router.get('/transaction/:hash', async (req, res) => {
   try {
     const { hash } = req.params;
-    const transaction = await getTransaction(hash);
+    const blockHash = typeof req.query.blockHash === 'string' ? req.query.blockHash : '';
+    if (!blockHash) {
+      return res.status(400).json({
+        success: false,
+        error: 'Missing blockHash query parameter',
+        message:
+          'Substrate extrinsic lookup requires the block hash: ?blockHash=0x... (block that contains the extrinsic).',
+      });
+    }
+    const transaction = await getTransaction(hash, blockHash);
     res.json({ success: true, data: transaction });
   } catch (error) {
     res.status(500).json({ 
