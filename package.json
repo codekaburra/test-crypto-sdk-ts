@@ -17,7 +17,8 @@
     "start:prod": "NODE_ENV=production node dist/src/index.js",
     "pretest": "npm run build",
     "test": "mocha dist/test/**/*.js",
-    "test:dev": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'"
+    "test:dev": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/chai": "^4.3.4",
@@ -32,6 +33,8 @@
     "@typescript-eslint/parser": "^5.42.1",
     "chai": "^4.3.7",
     "eslint": "^8.27.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
     "mocha": "^10.1.0",
     "prettier": "3.3.3",
     "rimraf": "^3.0.2",
